@@ -25,9 +25,9 @@ bind u:shift;cmd   push up  bar-resize:screenSizeY/2
 bind d:shift;cmd   push down  bar-resize:screenSizeY/2
 
 # move to top left corner
-bind w:shift;cmd;alt move screenOriginX;screenOriginY screenSizeX/2;screenSizeY/2
-# move to bottom right corner
-bind d:shift;cmd;alt move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY/2
+bind q:shift;cmd;alt move screenOriginX;screenOriginY screenSizeX/2;screenSizeY/2
+# move to top right corner
+bind w:shift;cmd;alt move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY/2
 # move to bottom left corner
 bind a:shift;cmd;alt move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2
 # move to bottom right corner
@@ -41,7 +41,8 @@ bind s:shift;cmd;alt move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/
 
 # Throw Bindings
 bind left:ctrl;alt;cmd         throw 0 resize
-bind right:ctrl;alt;cmd         throw 1 resize
+bind down:ctrl;alt;cmd         throw 1 resize
+bind right:ctrl;alt;cmd        throw 2 resize
 
 bind 3:ctrl;alt         throw 2 resize
 bind right:ctrl;alt;cmd throw right resize
@@ -59,3 +60,18 @@ bind  ,:shift;cmd    focus left
 
 # Window Hints
 bind esc:cmd hint
+
+# tile four windows 
+alias topleft move screenOriginX;screenOriginY screenSizeX/2;screenSizeY/2
+alias topright move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY/2
+alias bottomleft move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2
+alias bottomright move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2
+
+layout texteditquadrants 'Terminal' ${topleft} | ${topright} | ${bottomleft} | ${bottomright}
+layout texteditquadrants2 'WebStorm' ${topleft} | ${topright} | ${bottomleft} | ${bottomright}
+bind x:shift;cmd;alt layout texteditquadrants
+bind w:shift;cmd;alt layout texteditquadrants2
+
+
+
+
